@@ -7,12 +7,13 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import com.utn.project.dtos.EmpresaDTO; 
 import com.utn.project.entities.Empresa; 
 import com.utn.project.repositories.EmpresaRepository; 
-
+ 
 @Service
 public class EmpresaService {
 	private EmpresaRepository repository;
@@ -39,6 +40,7 @@ public class EmpresaService {
 			}
 			return dtos;
 		}catch(Exception e) {
+			System.out.println("El findall");
 			throw new Exception();
 		}
 	}
@@ -55,6 +57,7 @@ public class EmpresaService {
 			return (dtoClass);
 			
 		}catch (Exception e) {
+			System.out.println("El find by id");
 			throw new Exception();
 		}
 	}
@@ -74,6 +77,7 @@ public class EmpresaService {
 			return (dtoClass) ;
 			
 		}catch (Exception e) {
+			System.out.println("El save");
 			throw new Exception();
 		}
 	}
