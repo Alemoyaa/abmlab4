@@ -1,3 +1,5 @@
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +18,8 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
     BusquedaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
