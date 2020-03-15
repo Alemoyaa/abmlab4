@@ -7,14 +7,13 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
-import com.utn.project.dtos.EmpresaDTO;
-import com.utn.project.dtos.NoticiaDTO;
-import com.utn.project.entities.Empresa;
-import com.utn.project.entities.Noticia;
-import com.utn.project.repositories.EmpresaRepository;
-import com.utn.project.repositories.NoticiaRepository;
+import com.utn.project.dtos.EmpresaDTO; 
+import com.utn.project.entities.Empresa; 
+import com.utn.project.repositories.EmpresaRepository; 
 
+@Service
 public class EmpresaService {
 	private EmpresaRepository repository;
 	private EmpresaDTO dtoClass;

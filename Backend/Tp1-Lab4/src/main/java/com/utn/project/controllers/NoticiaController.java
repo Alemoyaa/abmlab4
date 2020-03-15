@@ -19,12 +19,11 @@ import com.utn.project.services.NoticiaService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/noticia")
+@RequestMapping(path = "api/v1/noticia")
 public class NoticiaController {
 	private NoticiaService service;
 
 	public NoticiaController(NoticiaService service) {
-		super();
 		this.service = service;
 	}
 
