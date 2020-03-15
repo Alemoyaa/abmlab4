@@ -1,5 +1,4 @@
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,17 +8,24 @@ import { IndexComponent } from './components/index/index.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TinyComponent } from './components/tiny/tiny.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     IndexComponent,
     DetalleComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    TinyComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
