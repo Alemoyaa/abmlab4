@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "empresa")
 public class Empresa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -19,13 +21,21 @@ public class Empresa implements Serializable {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(name = "empresa_denominacion")
 	private String denominacion;
+	@Column(name = "empresa_telefono")
 	private String telefono;
+	@Column(name = "empresa_horario")
 	private String horario;
+	@Column(name = "empresa_quienesSomos")
 	private String quienesSomos;
+	@Column(name = "empresa_latitud")
 	private float latitud;
+	@Column(name = "empresa_longitud")
 	private float longitud;
+	@Column(name = "empresa_domicilio")
 	private String domicilio;
+	@Column(name = "empresa_email")
 	private String email;
 	
 	public Empresa() {
@@ -44,8 +54,6 @@ public class Empresa implements Serializable {
 		this.domicilio = domicilio;
 		this.email = email;
 	}
-
-
 
 
 	public int getId() {
