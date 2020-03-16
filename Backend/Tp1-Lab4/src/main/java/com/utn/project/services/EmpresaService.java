@@ -39,8 +39,7 @@ public class EmpresaService {
 				dtos.add(dto);
 			}
 			return dtos;
-		}catch(Exception e) {
-			System.out.println("El findall");
+		}catch(Exception e) { 
 			throw new Exception();
 		}
 	}
@@ -56,8 +55,7 @@ public class EmpresaService {
 			mMapper.map(entidad, dtoClass);	//Aca tambien puede dar errores
 			return (dtoClass);
 			
-		}catch (Exception e) {
-			System.out.println("El find by id");
+		}catch (Exception e) { 
 			throw new Exception();
 		}
 	}
@@ -76,8 +74,7 @@ public class EmpresaService {
 			
 			return (dtoClass) ;
 			
-		}catch (Exception e) {
-			System.out.println("El save");
+		}catch (Exception e) { 
 			throw new Exception();
 		}
 	}

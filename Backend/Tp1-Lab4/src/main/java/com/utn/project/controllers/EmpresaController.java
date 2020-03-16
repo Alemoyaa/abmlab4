@@ -19,7 +19,7 @@ import com.utn.project.services.EmpresaService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/empresa")
+@RequestMapping(path = "api/v1/empresa") 
 public class EmpresaController {
 	private EmpresaService service;
 

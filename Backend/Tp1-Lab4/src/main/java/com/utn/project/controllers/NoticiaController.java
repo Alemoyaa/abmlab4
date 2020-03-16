@@ -19,7 +19,7 @@ import com.utn.project.services.NoticiaService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/noticia")
+@RequestMapping(path = "api/v1/noticia") 
 public class NoticiaController {
 	private NoticiaService service;
 
