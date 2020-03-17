@@ -1,3 +1,5 @@
+import { NoticiaService } from './services/noticia.service';
+import { EmpresaService } from './services/empresa.service';
 import { HttpClientModule } from "@angular/common/http";
 import { EditorModule } from "@tinymce/tinymce-angular";
 import { AppRoutingModule } from "./app-routing.module";
@@ -24,6 +26,7 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
     BusquedaComponent,
     TinyComponent,
     NotFoundComponent
+
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    EmpresaService,
+    NoticiaService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
