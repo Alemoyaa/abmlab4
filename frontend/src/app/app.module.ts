@@ -1,16 +1,19 @@
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
+import { EditorModule } from "@tinymce/tinymce-angular";
+import { AppRoutingModule } from "./app-routing.module";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { IndexComponent } from './components/index/index.component';
-import { DetalleComponent } from './components/detalle/detalle.component';
-import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./components/home/home.component";
+import { IndexComponent } from "./components/index/index.component";
+import { DetalleComponent } from "./components/detalle/detalle.component";
+import { BusquedaComponent } from "./components/busqueda/busqueda.component";
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { TinyComponent } from './components/tiny/tiny.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { TinyComponent } from "./components/tiny/tiny.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 @NgModule({
   declarations: [
@@ -25,9 +28,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    EditorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
