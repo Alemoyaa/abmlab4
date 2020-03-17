@@ -1,10 +1,10 @@
-package com.utn.project;
+package com.utn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Tp1Lab4ApplicationTests {
+class PersonaDomicilioApplicationTests {
 
 	@Test
 	void contextLoads() {
