@@ -1,12 +1,12 @@
-import { NoticiaService } from "./../../services/noticia.service";
-import { PostPayLoad } from "./post-payload";
-import { FormControl, FormGroup } from "@angular/forms";
-import { Component, OnInit } from "@angular/core";
+import { NoticiaService } from './../../services/noticia.service';
+import { PostPayLoad } from './post-payload';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-tiny",
-  templateUrl: "./tiny.component.html",
-  styleUrls: ["./tiny.component.css"]
+  selector: 'app-tiny',
+  templateUrl: './tiny.component.html',
+  styleUrls: ['./tiny.component.css']
 })
 export class TinyComponent implements OnInit {
   addPostForm: FormGroup;
