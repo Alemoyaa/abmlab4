@@ -23,7 +23,5 @@ export class IndexComponent implements OnInit {
     this.empresas = this.eService.getAll();
   }
 
-  redireccion(id: number) {
-    this.route.navigate(["home", id]);
-  }
+  
 }
