@@ -7,52 +7,13 @@
   <b>VER PAGINA</b>
   </td>
   </tr>
-  <tr>
+  <tr *ngFor="let empresa of empresas | async ">
   <td>
-  XXXXXXXX
+  {{empresa.id }}
   </td>
   <td>
-  <a href="#">URL PAGINA HOME</a>
+  <a (click)="redireccion(empresa.id)">URL PAGINA HOME</a>
   </td>
+  
   </tr>
-  <tr>
-  <td>
-  XXXXXXXX
-  </td>
-  <td>
-  <a href="#">URL PAGINA HOME</a>
-  </td>
-  </tr>
-  <tr>
-  <td>
-  XXXXXXXX
-  </td>
-  <td>
-  <a href="#">URL PAGINA HOME</a>
-  </td>
-  </tr>
-  <tr>
-  <td>
-  XXXXXXXX
-  </td>
-  <td>
-  <a href="#">URL PAGINA HOME</a>
-  </td>
-  </tr>
-  <tr>
-  <td>
-  XXXXXXXX
-  </td>
-  <td>
-  <a href="#">URL PAGINA HOME</a>
-  </td>
-  </tr>
-  <tr>
-  <td>
-  XXXXXXXX
-  </td>
-  <td>
-  <a href="#">URL PAGINA HOME</a>
-  </td>
-  </tr>
-  </table>
+  
