@@ -7,6 +7,7 @@ import { Noticia } from "../models/noticia";
 @Injectable({
   providedIn: "root"
 })
+
 export class NoticiaService {
   constructor(private httpClient: HttpClient) {}
 

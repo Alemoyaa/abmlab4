@@ -10,6 +10,9 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
+    path: 'home/:id', component: HomeComponent
+  },
+  {
     path: 'index', component: IndexComponent
   },
   {
