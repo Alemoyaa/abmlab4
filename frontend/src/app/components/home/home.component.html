@@ -38,15 +38,15 @@
         <div class="container top-sect">
           <div class="navbar-header">
             <h1 class="navbar-brand">
-              <a data-type='rd-navbar-brand'  href="#"><small>Denominación <br>Empresa</small></a>
+              <a data-type='rd-navbar-brand'  href="#"><small>{{empresa.denominacion}} <br>Empresa</small></a>
             </h1>
             <a class="search-form_toggle" href="#"></a>
           </div>
 
           <div class="help-box text-right">
             <p>Telefono</p>
-            <a href="#">800-2345-6789</a>
-            <small><span>Horario:</span>  6am-4pm PST M-Th; &nbsp;6am-3pm PST Fri</small>
+            <a >{{empresa.telefono}}</a>
+            <small><span>Horario:</span>  {{empresa.horario}}</small>
           </div>
         </div>
 
@@ -72,7 +72,7 @@
     =========================================================-->
 
       <main>
-
+       
         <section class="well well1 well1_ins1">
           <div class="camera_container">
             <div id="camera" class="camera_wrap">
@@ -134,8 +134,8 @@
             <div class="row">
               <div class="col">
                 <p style="text-align:justify">
-                  Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                  {{empresa.quienesSomos}}
+                 </p>
               </div>
             </div>
           </div>
@@ -161,21 +161,21 @@
             <div class="location">
               <h3 class="txt-clr1" style="color:black">
                 <small>
-                  Denominación Empresa
+                  {{empresa.denominacion}}
                 </small>
               </h3>
                 <address>
                   <dl>
                     <dt>Telefono: </dt>
-                    <dd class="phone" style="color:black"><a href="callto:#"> 800-2345-6789</a></dd>
+                    <dd class="phone" style="color:black"><a href="callto:#"> {{empresa.telefono}}</a></dd>
                   </dl>
                   <dl>
                     <dt>Domicilio: </dt>
-                    <dd style="color:black"> 4578 Marmora Road,Glasgow D04 89GR</dd>
+                    <dd style="color:black"> {{empresa.domicilio}}</dd>
                   </dl>
                   <dl>
                     <dt> E-mail: </dt>
-                    <dd style="color:black"><a href="mailto:#">info@demolink.org</a></dd>
+                    <dd style="color:black"><a href="mailto:#">{{empresa.email}}</a></dd>
                   </dl>
                 </address>
 
@@ -187,7 +187,7 @@
       <section class="well1">
         <div class="container">
               <p class="rights">
-                Denominación Empresa  &#169; <span id="copyright-year"></span>
+                {{empresa.denominacion}}  &#169; <span id="copyright-year"></span>
                 <a href="index-5.html">Privacy Policy</a>
                 <!-- {%FOOTER_LINK} -->
               </p>

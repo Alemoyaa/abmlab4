@@ -1,10 +1,10 @@
 
 export class Empresa {
-  id: number;
+  id?: number;
   denominacion: string;
   telefono: string;
   horario: string;
-  quienSomos: string;
+  quienesSomos: string;
   latitud: number;
   longitud: number;
   domicilio: string;
