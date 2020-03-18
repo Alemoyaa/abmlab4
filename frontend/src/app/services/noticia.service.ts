@@ -1,4 +1,3 @@
-import { PostPayLoad } from "./../components/tiny/post-payload";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";

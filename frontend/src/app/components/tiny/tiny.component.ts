@@ -1,29 +1,41 @@
-import { NoticiaService } from './../../services/noticia.service';
-import { PostPayLoad } from './post-payload';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Noticia } from "./../../models/noticia";
+import { NoticiaService } from "./../../services/noticia.service";
+import { PostPayLoad } from "./post-payload";
+import { FormControl, FormGroup } from "@angular/forms";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-tiny',
-  templateUrl: './tiny.component.html',
-  styleUrls: ['./tiny.component.css']
+  selector: "app-tiny",
+  templateUrl: "./tiny.component.html",
+  styleUrls: ["./tiny.component.css"]
 })
 export class TinyComponent implements OnInit {
   addPostForm: FormGroup;
   postPayload: PostPayLoad;
-  title = new FormControl("");
+  noticia: Noticia = {
+    id: null,
+    titulo: null,
+    resumen: null,
+    imagen: null,
+    contenidoHtml: null,
+    publicada: null,
+    publicacion: null,
+    idEmpresa: null
+  };
+  titulo = new FormControl("");
   body = new FormControl("");
+  resumen = new FormControl("");
+  imagen = new FormControl("");
+  idEmpresa = new FormControl("");
 
   constructor(private noticiaService: NoticiaService) {
     this.addPostForm = new FormGroup({
-      title: this.title,
-      body: this.body
+      titulo: this.titulo,
+      body: this.body,
+      resumen: this.resumen,
+      img: this.imagen,
+      idEmpresa: this.idEmpresa
     });
-    this.postPayload = {
-      id: "",
-      content: "",
-      title: ""
-    };
   }
 
   ngOnInit(): void {}
@@ -32,16 +44,38 @@ export class TinyComponent implements OnInit {
     alert(this.addPostForm.get("body").value);
   }
 
-  addPost() {
-    this.postPayload.content = this.addPostForm.get("body").value;
-    this.postPayload.title = this.addPostForm.get("title").value;
-    // this.noticiaService.addNoticia(this.postPayload).subscribe(
-    //   data => {
-    //     console.log("Noticia creada");
-    //   },
-    //   error => {
-    //     console.log("algo salio mal");
-    //   }
-    // );
+  postNoticia() {
+    let noticiaData = {
+      id: null,
+      titulo: null,
+      resumen: null,
+      imagen: null,
+      contenidoHtml: null,
+      publicada: null,
+      publicacion: null,
+      idEmpresa: null
+    };
+
+    let date = new Date();
+    let fechaActual =
+      date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear();
+
+    console.log(fechaActual);
+
+    noticiaData.titulo = this.addPostForm.get("titulo").value;
+    noticiaData.resumen = this.addPostForm.get("resumen").value;
+    noticiaData.imagen = this.addPostForm.get("img").value;
+    noticiaData.contenidoHtml = this.addPostForm.get("body").value;
+    noticiaData.publicada = 1;
+    noticiaData.publicacion = fechaActual;
+    noticiaData.idEmpresa = this.addPostForm.get("idEmpresa").value;
+    this.noticiaService.post(noticiaData).subscribe(
+      data => {
+        console.log("Noticia creada");
+      },
+      error => {
+        console.log("algo salio mal");
+      }
+    );
   }
 }
