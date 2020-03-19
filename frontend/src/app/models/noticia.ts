@@ -1,11 +1,10 @@
-
 export class Noticia {
-  id : number;
+  id: number;
   titulo: string;
   resumen: string;
   imagen: string;
-  contenidoHtml: string;
+  html: string;
   publicada: boolean;
-  publicacion: string;
+  fecha: string;
   idEmpresa: number;
-  }
+}

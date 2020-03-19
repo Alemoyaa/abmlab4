@@ -7,11 +7,10 @@ import { Noticia } from "../models/noticia";
 @Injectable({
   providedIn: "root"
 })
-
 export class NoticiaService {
   constructor(private httpClient: HttpClient) {}
 
-  miUrl: string = "localhost:8080/api/v1/noticia/";
+  miUrl: string = "http://localhost:8080/api/v1/noticia/";
 
   getAll(): Observable<Empresa[]> {
     return this.httpClient.get<Empresa[]>(this.miUrl);

@@ -17,9 +17,9 @@ export class TinyComponent implements OnInit {
     titulo: null,
     resumen: null,
     imagen: null,
-    contenidoHtml: null,
+    html: null,
     publicada: null,
-    publicacion: null,
+    fecha: null,
     idEmpresa: null
   };
   titulo = new FormControl("");
@@ -50,9 +50,9 @@ export class TinyComponent implements OnInit {
       titulo: null,
       resumen: null,
       imagen: null,
-      contenidoHtml: null,
+      html: null,
       publicada: null,
-      publicacion: null,
+      fecha: null,
       idEmpresa: null
     };
 
@@ -65,9 +65,9 @@ export class TinyComponent implements OnInit {
     noticiaData.titulo = this.addPostForm.get("titulo").value;
     noticiaData.resumen = this.addPostForm.get("resumen").value;
     noticiaData.imagen = this.addPostForm.get("img").value;
-    noticiaData.contenidoHtml = this.addPostForm.get("body").value;
+    noticiaData.html = this.addPostForm.get("body").value;
     noticiaData.publicada = 1;
-    noticiaData.publicacion = fechaActual;
+    noticiaData.fecha = fechaActual;
     noticiaData.idEmpresa = this.addPostForm.get("idEmpresa").value;
     this.noticiaService.post(noticiaData).subscribe(
       data => {
