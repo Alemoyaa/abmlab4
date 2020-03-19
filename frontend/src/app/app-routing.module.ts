@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'tiny', component: TinyComponent
   },
   {
-    path: '', component: HomeComponent
+    path: '', component: IndexComponent
   }
 ];
 
