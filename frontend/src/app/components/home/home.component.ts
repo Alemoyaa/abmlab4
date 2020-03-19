@@ -11,6 +11,18 @@ import { Empresa } from 'src/app/models/empresa';
 export class HomeComponent implements OnInit {
 
   constructor(private eService: EmpresaService, private route: ActivatedRoute) { }
+
+  zoom = 16;
+  position = {
+    lat: null,
+    lng: null
+  };
+
+  label={
+    color: 'red',
+    text: 'MARCADOR'
+  };
+
   public empresa: Empresa =
     {
       id: 0,
@@ -31,9 +43,12 @@ export class HomeComponent implements OnInit {
 
   getOne(id: number) {
     this.eService.getOne(id).subscribe(data => {
-      this.empresa = data;
-    }
-
+        this.empresa = data;
+        this.position = {
+          lat: -32.8873609,
+          lng: -68.8270301
+        };
+      }
     );
   }
 }

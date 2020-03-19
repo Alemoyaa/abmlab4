@@ -17,6 +17,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TinyComponent } from "./components/tiny/tiny.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 
+import { GoogleMapsModule } from "@angular/google-maps";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,8 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
     EditorModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [
     EmpresaService,

@@ -67,16 +67,25 @@
 
       </header>
 
+
+
+      <google-map [width]="800" [height]="600" >
+        <map-marker
+        [position]="position"
+        [label]="label"
+        [zoom]="zoom">
+        </map-marker>
+      </google-map>
+
     <!--========================================================
                               CONTENT
     =========================================================-->
 
       <main>
-       
+        <img src="../../../assets/page-1_slide1.jpg" alt="" class="mt-2">
         <section class="well well1 well1_ins1">
           <div class="camera_container">
             <div id="camera" class="camera_wrap">
-              <div data-src="../../../assets/page-1_slide1.jpg">
                 <div class="camera_caption fadeIn">
                   <div class="jumbotron jumbotron1">
                     <em>
@@ -90,7 +99,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
               <div data-src="images/page-1_slide2.jpg">
                 <div class="camera_caption fadeIn">
                   <div class="jumbotron jumbotron2">

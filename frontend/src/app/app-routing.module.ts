@@ -7,6 +7,9 @@ import { IndexComponent } from './components/index/index.component';
 
 const routes: Routes = [
   {
+    path: '', component: IndexComponent
+  },
+  {
     path: 'home', component: HomeComponent
   },
   {
@@ -20,9 +23,6 @@ const routes: Routes = [
   },
   {
     path: 'tiny', component: TinyComponent
-  },
-  {
-    path: '', component: IndexComponent
   }
 ];
 
