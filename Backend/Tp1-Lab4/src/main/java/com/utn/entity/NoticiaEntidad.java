@@ -1,7 +1,5 @@
 package com.utn.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -19,7 +17,7 @@ public class NoticiaEntidad extends BaseEntidad{
 	@Column(name = "noticia_publicada")
 	private byte publicada;
 	@Column(name = "noticia_fecha")
-	private Date fecha;
+	private String fecha;
 	@Column(name = "noticia_idEmpresa")
 	private int idEmpresa; 
 
@@ -63,11 +61,11 @@ public class NoticiaEntidad extends BaseEntidad{
 		this.publicada = publicada;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 

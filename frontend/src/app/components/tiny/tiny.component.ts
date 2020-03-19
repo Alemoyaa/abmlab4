@@ -38,8 +38,7 @@ export class TinyComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   mostrarHTML() {
     alert(this.addPostForm.get("body").value);
@@ -61,8 +60,6 @@ export class TinyComponent implements OnInit {
     let fechaActual =
       date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear();
 
-    console.log(fechaActual);
-
     noticiaData.titulo = this.addPostForm.get("titulo").value;
     noticiaData.resumen = this.addPostForm.get("resumen").value;
     noticiaData.imagen = this.addPostForm.get("img").value;
@@ -70,6 +67,7 @@ export class TinyComponent implements OnInit {
     noticiaData.publicada = 1;
     noticiaData.fecha = fechaActual;
     noticiaData.idEmpresa = this.addPostForm.get("idEmpresa").value;
+
     this.noticiaService.post(noticiaData).subscribe(
       data => {
         console.log("Noticia creada");

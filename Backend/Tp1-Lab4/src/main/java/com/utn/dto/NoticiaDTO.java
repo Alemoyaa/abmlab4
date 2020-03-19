@@ -1,6 +1,5 @@
 package com.utn.dto;
 
-import java.util.Date;
 
 public class NoticiaDTO extends BaseDTO {
 	private int id;
@@ -9,14 +8,14 @@ public class NoticiaDTO extends BaseDTO {
 	private String imagen;
 	private String html;
 	private byte publicada;
-	private Date fecha;
+	private String fecha;
 	private int idEmpresa;
 	
 	public NoticiaDTO() {
 
 	}
 	
-	public NoticiaDTO(int id, String titulo, String resumen, String imagen, String html, byte publicada, Date fecha,
+	public NoticiaDTO(int id, String titulo, String resumen, String imagen, String html, byte publicada, String fecha,
 			int idEmpresa) {
 		this.id = id;
 		this.titulo = titulo;
@@ -76,11 +75,11 @@ public class NoticiaDTO extends BaseDTO {
 		this.publicada = publicada;
 	}
 	
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 	
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	
