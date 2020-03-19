@@ -9,10 +9,10 @@
   </tr>
   <tr *ngFor="let empresa of empresas | async ">
   <td>
-  {{empresa.id }}
+  {{empresa.denominacion}}
   </td>
   <td>
-  <a routerLink="/home/{{empresa.id}}">URL PAGINA HOME</a>
+  <a routerLink="/home/{{empresa.id}}">Ver Noticias</a>
   </td>
   
   </tr>
