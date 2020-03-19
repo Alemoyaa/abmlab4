@@ -72,7 +72,8 @@ function verHTML(){
       </div>
       <div class="form-group">
         <label class="post-img">Imagen (URL)</label>
-        <input type="text" [formControlName]="'img'" class="form-control" placeholder="URL de la imagen">
+        <!--<input type="text" [formControlName]="'img'" class="form-control" placeholder="URL de la imagen">-->
+        <input type="file" [formControlName]="'img'" class="form-control" placeholder="URL de la imagen" (change)="onFileSelected($event)">
       </div>
       <div class="form-group">
         <label class="post-idEmpresa">ID Empresa</label>
@@ -102,5 +103,5 @@ function verHTML(){
   </div>
 </div>
 
-
+<img [src]="url" height="200"> <br/>
 <button (click)="mostrarHTML()">mostrar el html</button>

@@ -1,19 +1,18 @@
 <table width="50%" align="center">
   <tr>
-  <td width="50%">
-  <b>EMPRESA</b>
-  </td>
-  <td>
-  <b>VER PAGINA</b>
-  </td>
+    <td width="50%">
+      <b>ID EMPRESA</b>
+    </td>
+    <td>
+      <b>VER PAGINA</b>
+    </td>
   </tr>
   <tr *ngFor="let empresa of empresas | async ">
-  <td>
-  {{empresa.id }}
-  </td>
-  <td>
-  <a routerLink="/home/{{empresa.id}}">URL PAGINA HOME</a>
-  </td>
-  
+    <td>
+      {{empresa.id }}
+    </td>
+    <td>
+      <a routerLink="/home/{{empresa.id}}">Pagina de la empresa {{empresa.denominacion}}</a>
+    </td>
   </tr>
-  
+</table>

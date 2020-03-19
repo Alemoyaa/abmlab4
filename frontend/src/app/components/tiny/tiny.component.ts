@@ -10,6 +10,9 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./tiny.component.css"]
 })
 export class TinyComponent implements OnInit {
+
+  url: string | ArrayBuffer; //Implementado una foto en el post
+
   addPostForm: FormGroup;
   postPayload: PostPayLoad;
   noticia: Noticia = {
@@ -38,10 +41,26 @@ export class TinyComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.noticiaa();
+  }
 
   mostrarHTML() {
     alert(this.addPostForm.get("body").value);
+  }
+
+  //Implementado una foto en el post
+  onFileSelected(event) { //llamado cada vez que cambia la entrada del archivo
+      /*if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+
+        reader.readAsDataURL(event.target.files[0]); // lee el archivo como url de datos
+
+        reader.onload = (event) => { // una vez que se completa se llama a readAsDataURL
+          this.url = event.target.result;
+          console.log(this.url)
+        }
+      }*/
   }
 
   postNoticia() {
@@ -64,7 +83,7 @@ export class TinyComponent implements OnInit {
 
     noticiaData.titulo = this.addPostForm.get("titulo").value;
     noticiaData.resumen = this.addPostForm.get("resumen").value;
-    noticiaData.imagen = this.addPostForm.get("img").value;
+    noticiaData.imagen = this.url;
     noticiaData.html = this.addPostForm.get("body").value;
     noticiaData.publicada = 1;
     noticiaData.fecha = fechaActual;
@@ -74,8 +93,22 @@ export class TinyComponent implements OnInit {
         console.log("Noticia creada");
       },
       error => {
-        console.log("algo salio mal");
+        console.log("algo salio mal", error);
       }
     );
   }
+
+  noticiaa(){
+    this.noticiaService.getOne(2).subscribe(
+      res => {
+        console.log(res);
+        console.log(res.imagen);
+        this.url = res.imagen;
+      },
+      error => {
+        console.log("xd", error);
+      }
+    )
+  }
+
 }
