@@ -4,7 +4,7 @@ export class Noticia {
   resumen: string;
   imagen: string;
   html: string;
-  publicada: boolean;
+  publicada: number;
   fecha: string;
   idEmpresa: number;
 }

@@ -7,9 +7,9 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class EmpresaService {
-  miUrl: string = "http://localhost:8080/api/v1/empresa/";
-
   constructor(private http: HttpClient) {}
+
+  miUrl: string = "http://localhost:8080/api/v1/empresa/";
 
   getAll(): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(this.miUrl);
