@@ -27,22 +27,23 @@
   <div class="container mt-4 mb-2">
     <div class="jumbotron">
       <h1 class="display-4">Noticias</h1>
-      <div class="noticias mt-4" *ngFor="let noticia of noticias">
-
-        <div class="container d-flex justify-content-start ">
-
-          <div class="card mr-4 mb-2" style="width: 18rem;">
-            <div class="card-header">
-              {{noticia.fecha}}
-            </div>
-            <img src="{{noticia.imagen}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{noticia.titulo}}</h5>
-              <p class="card-text">{{noticia.resumen}}</p>
-              <a href="/detalle/{{noticia.id}}" class="btn btn-primary">Leer</a>
+      <div class="noticias mt-4">
+        <div class="row">
+          <div class=" d-flex justify-content-start center-text" *ngFor="let noticia of noticias">
+            <div class="inline-block card mr-4 mb-2" style="width: 18rem;">
+              <div class="card-header">
+                {{noticia.fecha}}
+              </div>
+              <img src="{{noticia.imagen}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{noticia.titulo}}</h5>
+                <p class="card-text">{{noticia.resumen}}</p>
+                <a href="/detalle/{{noticia.id}}" class="btn btn-primary">Leer</a>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
