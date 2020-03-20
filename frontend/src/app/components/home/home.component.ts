@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmpresaService } from '../../services/empresa.service';
 import { Empresa } from 'src/app/models/empresa';
+import { MapMarker, MapInfoWindow } from '@angular/google-maps';
 
 @Component({
   selector: 'app-home',
@@ -10,18 +11,20 @@ import { Empresa } from 'src/app/models/empresa';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+
   constructor(private eService: EmpresaService, private route: ActivatedRoute) { }
 
-  zoom = 16;
-  position = {
-    lat: null,
-    lng: null
+  zoom = 18;
+  center: google.maps.LatLngLiteral;
+  options: google.maps.MapOptions = {
+    zoomControl: true,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    mapTypeId: "roadmap"
   };
-
-  label={
-    color: 'red',
-    text: 'MARCADOR'
-  };
+  markers = [];
+  infoContent = "";
 
   public empresa: Empresa =
     {
@@ -44,11 +47,27 @@ export class HomeComponent implements OnInit {
   getOne(id: number) {
     this.eService.getOne(id).subscribe(data => {
         this.empresa = data;
-        this.position = {
-          lat: -32.8873609,
-          lng: -68.8270301
+        console.log(data)
+        this.center = {
+          lat: data.latitud,
+          lng: data.longitud
         };
+        this.markers.push({
+          position: {
+            lat: data.latitud,
+            lng: data.longitud
+          },
+          label: {
+            color: "white",
+            text: data.id
+          },
+            title: data.denominacion
+        });
       }
     );
+  }
+  openInfo(marker: MapMarker, info) {
+    this.infoContent = info;
+    this.info.open(marker);
   }
 }

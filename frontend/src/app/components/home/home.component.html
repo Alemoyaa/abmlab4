@@ -60,28 +60,13 @@
             </label>
             <button class="search-form_submit fa-search" type="submit"></button>
           </form>
-
           </div>
-
         </div>
-
       </header>
-
-
-
-      <google-map [width]="800" [height]="600" >
-        <map-marker
-        [position]="position"
-        [label]="label"
-        [zoom]="zoom">
-        </map-marker>
-      </google-map>
-
     <!--========================================================
                               CONTENT
     =========================================================-->
-
-      <main>
+    <main>
         <img src="../../../assets/page-1_slide1.jpg" alt="" class="mt-2">
         <section class="well well1 well1_ins1">
           <div class="camera_container">
@@ -161,8 +146,35 @@
           Donde estamos
           </h2>
           </div>
-      </section>
-    <div class="map">
+    </section>
+
+    <google-map height="500px" width="100%" [zoom]="zoom" [center]="center"
+    [options]="options" >
+
+      <map-marker #markerElem *ngFor="let marker of markers"
+      [position]="marker.position" [label]="marker.label"
+      [title]="marker.title" [options]="marker.options"
+      (mapClick)="openInfo(markerElem, marker.info)">
+
+      </map-marker>
+
+      <map-info-window>
+        <h4>
+          {{empresa.denominacion}}
+        </h4>
+        <br>
+        <p>
+          {{empresa.telefono}}
+          <br>
+          {{empresa.email}}
+          <br>
+          {{empresa.horario}}
+        </p>
+      </map-info-window>
+
+    </google-map>
+
+    <!--div class="map">
         <div id="google-map" class="map_model" data-zoom="11"></div>
         <ul class="map_locations">
           <li data-x="-73.9874068" data-y="40.643180" data-basic="../../../assets/gmap_marker.png" data-active="../../../assets/gmap_marker_active.png">
@@ -190,7 +202,7 @@
             </div>
           </li>
         </ul>
-      </div>
+      </div-->
 
       <section class="well1">
         <div class="container">
