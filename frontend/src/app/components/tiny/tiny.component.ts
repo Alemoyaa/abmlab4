@@ -71,7 +71,7 @@ export class TinyComponent implements OnInit {
 
     let date = new Date();
     let fechaActual =
-      date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear();
+      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
     noticiaData.titulo = this.addPostForm.get("titulo").value;
     noticiaData.resumen = this.addPostForm.get("resumen").value;
