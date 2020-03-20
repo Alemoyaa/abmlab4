@@ -1,39 +1,4 @@
-<!--
-  <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --
-    <meta name="format-detection" content="telephone=no"/>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>PRIVACY</title>
-
-    <!-- Bootstrap --
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Links --
-    <link rel="stylesheet" href="css/search.css">
-
-    <!--JS--
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/rd-smoothscroll.min.js"></script>
-
-
-    <!--[if lt IE 9]>
-    <div style=' clear: both; text-align:center; position: relative;'>
-        <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
-            <img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
-                 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
-        </a>
-    </div>
-    <script src="js/html5shiv.js"></script>
-    <![endif]--
-    <script src='js/device.min.js'></script>
--->
 <div class="page">
-  <!--========================================================
-                            HEADER
-  =========================================================-->
     <header>
       <div class="container top-sect">
         <div class="navbar-header">
@@ -60,159 +25,49 @@
           </label>
           <button class="search-form_submit fa-search" type="submit"></button>
         </form>
-
         </div>
-
       </div>
-
     </header>
 
-  <!--========================================================
-                            CONTENT
-  =========================================================-->
 
-    <main>
+  <form>
+    <div class="form-group form-inline">
+        Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+        <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+    </div>
 
-      <section class="well well4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
+        <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
+        <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let noticia of noticias$ | async">
+        <th scope="row">{{ noticia.id }}</th>
+        <td>
+          <img [src]="noticia.imagen" class="mr-2" style="width: 20px">
+          <ngb-highlight [result]="noticia.titulo" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td><ngb-highlight [result]="noticia.fecha | number" [term]="service.searchTerm"></ngb-highlight></td>
+      </tr>
+      </tbody>
+    </table>
 
-        <div class="container">
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination
+        [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
+      </ngb-pagination>
 
-          <h2>
-            Texto Buscado
-          </h2>
-          <div class="row offs2">
+      <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+        <option [ngValue]="2">2 items per page</option>
+        <option [ngValue]="4">4 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+      </select>
+    </div>
+  </form>
 
-            <table width="90%" align="center">
-				<tbody>
-					<tr>
-						<td>
-							<a href="noticia.php?idNoticia=870">
-								<img width="250px" class="imgNoticia" src="../../../assets/page-1_slide1.jpg" alt="">
-							</a>
-						</td>
-						<td width="25"></td>
-						<td style="text-align:justify;" valign="top">
-							<a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-								Titulo									</a>
-							<div class="verOcultar">
-								Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue"> Leer Mas - 2020-02-14</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr>
-			<table width="90%" align="center">
-				<tbody>
-					<tr>
-						<td>
-							<a href="noticia.php?idNoticia=870">
-								<img width="250px" class="imgNoticia" src="../../../assets/page-1_slide1.jpg" alt="">
-							</a>
-						</td>
-						<td width="25"></td>
-						<td style="text-align:justify;" valign="top">
-							<a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-								Titulo									</a>
-							<div class="verOcultar">
-								Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue"> Leer Mas - 2020-02-14</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr>
-			<table width="90%" align="center">
-				<tbody>
-					<tr>
-						<td>
-							<a href="noticia.php?idNoticia=870">
-								<img width="250px" class="imgNoticia" src="../../../assets/page-1_slide1.jpg" alt="">
-							</a>
-						</td>
-						<td width="25"></td>
-						<td style="text-align:justify;" valign="top">
-							<a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-								Titulo									</a>
-							<div class="verOcultar">
-								Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue"> Leer Mas - 2020-02-14</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr>
-			<table width="90%" align="center">
-				<tbody>
-					<tr>
-						<td>
-							<a href="noticia.php?idNoticia=870">
-								<img width="250px" class="imgNoticia" src="../../../assets/page-1_slide1.jpg" alt="">
-							</a>
-						</td>
-						<td width="25"></td>
-						<td style="text-align:justify;" valign="top">
-							<a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-								Titulo									</a>
-							<div class="verOcultar">
-								Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue"> Leer Mas - 2020-02-14</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr>
-			<table width="90%" align="center">
-				<tbody>
-					<tr>
-						<td>
-							<a href="noticia.php?idNoticia=870">
-								<img width="250px" class="imgNoticia" src="../../../assets/page-1_slide1.jpg" alt="">
-							</a>
-						</td>
-						<td width="25"></td>
-						<td style="text-align:justify;" valign="top">
-							<a style="text-align:justify; font-size:20px" href="noticia.php?idNoticia=870" class="banner">
-								Titulo									</a>
-							<div class="verOcultar">
-								Resumen de la Noticia<a href="noticia.php?idNoticia=870" style="color:blue"> Leer Mas - 2020-02-14</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr>
-
-
-          </div>
-        </div>
-      </section>
-
-
-    </main>
-
-    <!--========================================================
-                            FOOTER
-  =========================================================-->
-  <footer>
-   <section class="well">
-      <div class="container">
-            <p class="rights">
-              Denominación Empresa  &#169; <span id="copyright-year"></span>
-              <a href="#">Privacy Policy</a>
-              <!-- {%FOOTER_LINK} -->
-            </p>
-      </div>
-    </section>
-  </footer>
-  </div>
-
-<!--
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --
-  <!-- Include all compiled plugins (below), or include individual files as needed --
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/tm-scripts.js"></script>
-  <!-- </script> --
-
-  <!-- coded by vitlex --
--->
+</div>

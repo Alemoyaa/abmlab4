@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { NgbdSortableHeader, SortEvent } from './sortable.directive';
+import { Noticia } from './../../models/noticia';
+import { Observable } from 'rxjs';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import { BusquedaService } from './busqueda.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusquedaComponent implements OnInit {
 
-  constructor() { }
+  noticias$: Observable<Noticia[]>;
+  total$: Observable<number>;
 
-  ngOnInit(): void {
+  @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
+
+  constructor(public service: BusquedaService) {
+    this.noticias$ = service.noticias$;
+    this.total$ = service.total$;
+  }
+
+  ngOnInit():void{
+
+  }
+
+  onSort({column, direction}: SortEvent) {
+    // resetting other headers
+    this.headers.forEach(header => {
+      if (header.sortable !== column) {
+        header.direction = '';
+      }
+    });
+
+    this.service.sortColumn = column;
+    this.service.sortDirection = direction;
   }
 
 }

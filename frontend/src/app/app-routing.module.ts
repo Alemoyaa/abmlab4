@@ -1,3 +1,4 @@
+import { BusquedaComponent } from "./components/busqueda/busqueda.component";
 import { TinyComponent } from "./components/tiny/tiny.component";
 import { DetalleComponent } from "./components/detalle/detalle.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: "post",
     component: TinyComponent
+  },
+  {
+    path: "busqueda",
+    component: BusquedaComponent
   }
 ];
 
