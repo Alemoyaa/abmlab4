@@ -1,3 +1,4 @@
+import { BusquedaService } from './components/busqueda/busqueda.service';
 import { NoticiaService } from './services/noticia.service';
 import { EmpresaService } from './services/empresa.service';
 import { HttpClientModule } from "@angular/common/http";
@@ -42,7 +43,9 @@ import { GoogleMapsModule } from "@angular/google-maps";
   ],
   providers: [
     EmpresaService,
-    NoticiaService],
+    NoticiaService,
+    BusquedaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

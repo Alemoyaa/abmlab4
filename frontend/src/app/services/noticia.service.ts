@@ -12,8 +12,8 @@ export class NoticiaService {
 
   miUrl: string = "http://localhost:8080/api/v1/noticia/";
 
-  getAll(): Observable<Empresa[]> {
-    return this.httpClient.get<Empresa[]>(this.miUrl);
+  getAll(): Observable<Noticia[]> {
+    return this.httpClient.get<Noticia[]>(this.miUrl);
   }
 
   getOne(id: number): Observable<Noticia> {
@@ -33,4 +33,6 @@ export class NoticiaService {
   put(id: number, noticia: Noticia): Observable<Noticia> {
     return this.httpClient.put<Noticia>(this.miUrl + id, noticia);
   }
+
+
 }
