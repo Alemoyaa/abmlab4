@@ -1,3 +1,4 @@
+import { NgbdSortableHeader } from './components/busqueda/sortable.directive';
 import { BusquedaService } from './components/busqueda/busqueda.service';
 import { NoticiaService } from './services/noticia.service';
 import { EmpresaService } from './services/empresa.service';
@@ -20,6 +21,8 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 import { GoogleMapsModule } from "@angular/google-maps";
 
+import { DecimalPipe, CommonModule } from "@angular/common";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +31,12 @@ import { GoogleMapsModule } from "@angular/google-maps";
     DetalleComponent,
     BusquedaComponent,
     TinyComponent,
-    NotFoundComponent
-
+    NotFoundComponent,
+    NgbdSortableHeader
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     NgbModule,
     EditorModule,
@@ -44,7 +48,8 @@ import { GoogleMapsModule } from "@angular/google-maps";
   providers: [
     EmpresaService,
     NoticiaService,
-    BusquedaService
+    BusquedaService,
+    DecimalPipe
   ],
   bootstrap: [AppComponent]
 })

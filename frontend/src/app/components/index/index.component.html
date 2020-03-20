@@ -16,7 +16,7 @@
           {{empresa.denominacion}}
         </td>
         <td>
-          <a href="/home/{{empresa.id}}">Sitio Web</a>
+          <a [routerLink]="['/home/'+empresa.id]">Sitio Web</a>
         </td>
       </tr>
 

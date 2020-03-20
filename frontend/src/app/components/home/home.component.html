@@ -13,7 +13,9 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="#"><button class="btn btn-primary btn-sm" role="button">Directorio</button></a>
+            <a  [routerLink]="['/']">
+              <button class="btn btn-primary btn-sm" role="button">Directorio</button>
+            </a>
           </li>
         </ul>
       </div>
@@ -34,11 +36,11 @@
               <div class="card-header">
                 {{noticia.fecha}}
               </div>
-              <img src="{{noticia.imagen}}" class="card-img-top" alt="...">
+              <img src="{{noticia.imagen}}" class="card-img-top" alt="Imagen de la noticia">
               <div class="card-body">
                 <h5 class="card-title">{{noticia.titulo}}</h5>
                 <p class="card-text">{{noticia.resumen}}</p>
-                <a href="/detalle/{{noticia.id}}" class="btn btn-primary">Leer</a>
+                <a [routerLink]="['/detalle/'+noticia.id]" class="btn btn-primary">Leer</a>
               </div>
             </div>
           </div>
@@ -104,27 +106,6 @@
         </map-info-window>
 
       </google-map>
-
-      <!-- <div class="d-flex justify-content-around">
-        <div class="center-text">
-          <h4>Teléfono</h4>
-          <h4>{{empresa.telefono}}</h4>
-          <button class="btn btn-primary btn-lg" href="#" role="button">Llamar</button>
-        </div>
-        <div class="center-text">
-          <h4>Dirección de e-mail</h4>
-          <h4>{{empresa.email}}</h4>
-          <button class="btn btn-primary btn-lg" href="#" role="button">Enviar correo</button>
-        </div>
-        <div class="center-text">
-          <h4>Horario</h4>
-          <h5>{{empresa.horario}}</h5>
-        </div>
-      </div> -->
     </div>
   </div>
-
-  <!--========================================================
-                              FOOTER
-    =========================================================-->
 </div>

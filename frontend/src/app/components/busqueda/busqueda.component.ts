@@ -1,3 +1,4 @@
+import { DecimalPipe } from '@angular/common';
 import { NgbdSortableHeader, SortEvent } from './sortable.directive';
 import { Noticia } from './../../models/noticia';
 import { Observable } from 'rxjs';
@@ -7,7 +8,8 @@ import { BusquedaService } from './busqueda.service';
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
-  styleUrls: ['./busqueda.component.css']
+  styleUrls: ['./busqueda.component.css'],
+  providers: [BusquedaService, DecimalPipe]
 })
 export class BusquedaComponent implements OnInit {
 

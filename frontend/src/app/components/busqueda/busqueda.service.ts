@@ -21,9 +21,7 @@ interface State {
   sortDirection: SortDirection;
 }
 
-function compare(v1, v2) {
-  return v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
-}
+const compare = (v1: string, v2: string) => v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
 
 function sort(noticias: Noticia[], column: string, direction: string): Noticia[] {
   if (direction === '') {
@@ -41,8 +39,12 @@ function matches(noticia: Noticia, term: string, pipe: PipeTransform) {
     || pipe.transform(noticia.fecha).includes(term);
 }
 
-@Injectable()
+@Injectable({providedIn: "root"})
+
 export class BusquedaService {
+
+  noticias: Noticia[];
+
   private _loading$ = new BehaviorSubject<boolean>(true);
   private _search$ = new Subject<void>();
   private _noticias$ = new BehaviorSubject<Noticia[]>([]);
@@ -68,7 +70,33 @@ export class BusquedaService {
       this._total$.next(result.total);
     });
 
+    nService.getAll().subscribe(datos => {
+      this.noticias = datos
+    });
+
     this._search$.next();
+  }
+
+  private _set(patch: Partial<State>) {
+    Object.assign(this._state, patch);
+    this._search$.next();
+  }
+
+  private _search(): Observable<SearchResult> {
+    const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
+
+    // 1. sort
+    let noticia = sort(this.noticias, sortColumn, sortDirection); // para ordenarlo
+
+    // 2. filter
+    noticia = noticia.filter(noticia =>
+      matches(noticia, searchTerm, this.pipe)
+    );
+    const total = noticia.length;
+
+    // 3. paginate
+    noticia = noticia.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
+    return of({noticia, total});
   }
 
   get noticias$() { return this._noticias$.asObservable(); }
@@ -83,31 +111,4 @@ export class BusquedaService {
   set searchTerm(searchTerm: string) { this._set({searchTerm}); }
   set sortColumn(sortColumn: string) { this._set({sortColumn}); }
   set sortDirection(sortDirection: SortDirection) { this._set({sortDirection}); }
-
-  private _set(patch: Partial<State>) {
-    Object.assign(this._state, patch);
-    this._search$.next();
-  }
-
-  private _search(): Observable<SearchResult> {
-    const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
-
-    let obs ; //Observable
-    this.nService.getAll().subscribe(//Casteado a object
-      data => {
-        obs = data;
-      }
-    );
-
-    // 1. sort
-    let noticia = sort(obs, sortColumn, sortDirection); // para ordenarlo
-
-    // 2. filter
-    noticia = noticia.filter(country => matches(country, searchTerm, this.pipe));
-    const total = noticia.length;
-
-    // 3. paginate
-    noticia = noticia.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-    return of({noticia, total});
-  }
 }

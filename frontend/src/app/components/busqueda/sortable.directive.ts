@@ -1,5 +1,7 @@
+import { Noticia } from './../../models/noticia';
 import {Directive, EventEmitter, Input, Output} from '@angular/core';
 
+export type SortColumn = keyof Noticia | '';
 export type SortDirection = 'asc' | 'desc' | '';
 const rotate: {[key: string]: SortDirection} = { 'asc': 'desc', 'desc': '', '': 'asc' };
 
@@ -16,9 +18,10 @@ export interface SortEvent {
     '(click)': 'rotate()'
   }
 })
+
 export class NgbdSortableHeader {
 
-  @Input() sortable: string;
+  @Input() sortable: SortColumn = '';
   @Input() direction: SortDirection = '';
   @Output() sort = new EventEmitter<SortEvent>();
 
