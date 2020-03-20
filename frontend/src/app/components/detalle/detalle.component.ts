@@ -37,24 +37,24 @@ export class DetalleComponent implements OnInit {
     html: "",
     publicada: 0,
     fecha: "",
-    idEmpresa: 0
+    idEmpresa: null
   };
 
   ngOnInit(): void {
     const idNoticia = this.route.snapshot.params["id"];
-    console.log(idNoticia);
     this.getNoticia(idNoticia);
   }
 
-  getNoticia(id: number) {
-    this.noticiaService.getOne(id).subscribe(data => {
-      this.noticia = data;
+  async getNoticia(id: number) {
+    await this.noticiaService.getOne(id).subscribe(data => {
+      this.noticia = data as Noticia;
+      this.getEmpresa();
+      document.getElementById("innerHtml").innerHTML = this.noticia.html;
     });
-    this.getEmpresa(this.noticia.idEmpresa);
   }
 
-  getEmpresa(id: number) {
-    this.empresaService.getOne(id).subscribe(data => {
+  getEmpresa() {
+    this.empresaService.getOne(this.noticia.idEmpresa).subscribe(data => {
       this.empresa = data;
     });
   }

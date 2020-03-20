@@ -1,1 +1,46 @@
-<p>{{noticia.titulo}}</p>
+<div class="page">
+  <!--========================================================
+                              HEADER
+
+    =========================================================-->
+  <nav class="navbar navbar-light navbar-expand-lg d-flex justify-content-around" style="background-color: #e3f2fd;">
+    <h3 class="mt-1">{{empresa.denominacion}}</h3>
+    <div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#"><button class="btn btn-primary btn-sm" role="button">Directorio</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  <!--========================================================
+                              CONTENT
+    =========================================================-->
+
+  <div class="container mt-4 mb-2">
+    <div class="jumbotron">
+      <h5>{{noticia.fecha}}</h5>
+      <h2>{{noticia.titulo}}</h2>
+      <h4>{{noticia.resumen}}</h4>
+      <div class="body">
+        <img src="{{noticia.imagen}}" width="500" alt="...">
+        <hr>
+        <div id="innerHtml">
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!--========================================================
+                              FOOTER
+    =========================================================-->
+</div>
