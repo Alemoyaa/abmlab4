@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
   getOne(id: number) {
     this.eService.getOne(id).subscribe(data => {
         this.empresa = data;
-        console.log(data)
+        console.log(data);
         this.center = {
           lat: data.latitud,
           lng: data.longitud

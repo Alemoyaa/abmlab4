@@ -2,6 +2,8 @@ package com.utn.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "noticia")
 public class NoticiaEntidad extends BaseEntidad{
@@ -18,8 +20,10 @@ public class NoticiaEntidad extends BaseEntidad{
 	private byte publicada;
 	@Column(name = "noticia_fecha")
 	private String fecha;
-	@Column(name = "noticia_idEmpresa")
-	private int idEmpresa; 
+	
+	@ManyToOne()
+	@JoinColumn(name = "empresa.id")   
+	private EmpresaEntidad idEmpresa; 
 
 	public String getTitulo() {
 		return titulo;
@@ -69,13 +73,15 @@ public class NoticiaEntidad extends BaseEntidad{
 		this.fecha = fecha;
 	}
 
-	public int getIdEmpresa() {
+	public EmpresaEntidad getIdEmpresa() {
 		return idEmpresa;
 	}
 
-	public void setIdEmpresa(int idEmpresa) {
+	public void setIdEmpresa(EmpresaEntidad idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
+
+
 
 	
 	
