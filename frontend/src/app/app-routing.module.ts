@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BusquedaComponent } from "./components/busqueda/busqueda.component";
 import { TinyComponent } from "./components/tiny/tiny.component";
 import { DetalleComponent } from "./components/detalle/detalle.component";
@@ -10,10 +11,6 @@ const routes: Routes = [
   {
     path: "",
     component: IndexComponent
-  },
-  {
-    path: "home",
-    component: HomeComponent
   },
   {
     path: "home/:id",
@@ -32,8 +29,12 @@ const routes: Routes = [
     component: TinyComponent
   },
   {
-    path: "busqueda",
+    path: "busqueda/:id",
     component: BusquedaComponent
+  },
+  {
+    path: "**",
+    component: NotFoundComponent
   }
 ];
 

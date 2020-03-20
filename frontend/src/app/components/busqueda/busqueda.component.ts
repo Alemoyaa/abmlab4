@@ -1,9 +1,10 @@
+import { ActivatedRoute } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { NgbdSortableHeader, SortEvent } from './sortable.directive';
 import { Noticia } from './../../models/noticia';
 import { Observable } from 'rxjs';
 import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
-import { BusquedaService } from './busqueda.service';
+import { BusquedaService } from '../../services/busqueda.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -18,13 +19,16 @@ export class BusquedaComponent implements OnInit {
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: BusquedaService) {
+  constructor(
+    public service: BusquedaService,
+    private route: ActivatedRoute
+    ) {
     this.noticias$ = service.noticias$;
     this.total$ = service.total$;
+    const idEmpresa = this.route.snapshot.params["id"];
   }
 
   ngOnInit():void{
-
   }
 
   onSort({column, direction}: SortEvent) {

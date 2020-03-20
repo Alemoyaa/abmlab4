@@ -1,12 +1,12 @@
-import { NoticiaService } from './../../services/noticia.service';
-import { Noticia } from './../../models/noticia';
+import { NoticiaService } from './noticia.service';
+import { Noticia } from '../models/noticia';
 import {Injectable, PipeTransform} from '@angular/core';
 
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 
 import {DecimalPipe} from '@angular/common';
 import {debounceTime, delay, switchMap, tap} from 'rxjs/operators';
-import {SortDirection} from './sortable.directive';
+import {SortDirection} from '../components/busqueda/sortable.directive';
 
 interface SearchResult {
   total: number;
@@ -36,7 +36,7 @@ function sort(noticias: Noticia[], column: string, direction: string): Noticia[]
 
 function matches(noticia: Noticia, term: string, pipe: PipeTransform) {
   return noticia.titulo.toLowerCase().includes(term.toLowerCase())
-    || pipe.transform(noticia.fecha).includes(term);
+    || noticia.fecha.includes(term);
 }
 
 @Injectable({providedIn: "root"})

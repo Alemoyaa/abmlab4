@@ -1,5 +1,5 @@
 import { NgbdSortableHeader } from './components/busqueda/sortable.directive';
-import { BusquedaService } from './components/busqueda/busqueda.service';
+import { BusquedaService } from './services/busqueda.service';
 import { NoticiaService } from './services/noticia.service';
 import { EmpresaService } from './services/empresa.service';
 import { HttpClientModule } from "@angular/common/http";
