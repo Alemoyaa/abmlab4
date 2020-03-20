@@ -1,28 +1,34 @@
-import { TinyComponent } from './components/tiny/tiny.component';
-import { DetalleComponent } from './components/detalle/detalle.component';
-import { HomeComponent } from './components/home/home.component';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { IndexComponent } from './components/index/index.component';
+import { TinyComponent } from "./components/tiny/tiny.component";
+import { DetalleComponent } from "./components/detalle/detalle.component";
+import { HomeComponent } from "./components/home/home.component";
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { IndexComponent } from "./components/index/index.component";
 
 const routes: Routes = [
   {
-    path: '', component: IndexComponent
+    path: "",
+    component: IndexComponent
   },
   {
-    path: 'home', component: HomeComponent
+    path: "home",
+    component: HomeComponent
   },
   {
-    path: 'home/:id', component: HomeComponent
+    path: "home/:id",
+    component: HomeComponent
   },
   {
-    path: 'index', component: IndexComponent
+    path: "index",
+    component: IndexComponent
   },
   {
-    path: 'detalle', component: DetalleComponent
+    path: "detalle",
+    component: DetalleComponent
   },
   {
-    path: 'tiny', component: TinyComponent
+    path: "post",
+    component: TinyComponent
   }
 ];
 
@@ -30,4 +36,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

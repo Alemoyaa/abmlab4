@@ -1,6 +1,7 @@
+import { Empresa } from "./../../models/empresa";
+import { EmpresaService } from "./../../services/empresa.service";
 import { Noticia } from "./../../models/noticia";
 import { NoticiaService } from "./../../services/noticia.service";
-import { PostPayLoad } from "./post-payload";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 
@@ -11,7 +12,6 @@ import { Component, OnInit } from "@angular/core";
 })
 export class TinyComponent implements OnInit {
   addPostForm: FormGroup;
-  postPayload: PostPayLoad;
   noticia: Noticia = {
     id: null,
     titulo: null,
@@ -27,8 +27,12 @@ export class TinyComponent implements OnInit {
   resumen = new FormControl("");
   imagen = new FormControl("");
   idEmpresa = new FormControl("");
+  empresas: Empresa[];
 
-  constructor(private noticiaService: NoticiaService) {
+  constructor(
+    private noticiaService: NoticiaService,
+    private empresaService: EmpresaService
+  ) {
     this.addPostForm = new FormGroup({
       titulo: this.titulo,
       body: this.body,
@@ -38,10 +42,19 @@ export class TinyComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getEmpresas();
+  }
 
   mostrarHTML() {
     alert(this.addPostForm.get("body").value);
+    alert(this.empresas);
+  }
+
+  getEmpresas() {
+    this.empresaService.getAll().subscribe(data => {
+      this.empresas = data;
+    });
   }
 
   postNoticia() {

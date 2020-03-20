@@ -1,18 +1,28 @@
-<table width="50%" align="center">
-  <tr>
-    <td width="50%">
-      <b>ID EMPRESA</b>
-    </td>
-    <td>
-      <b>VER PAGINA</b>
-    </td>
-  </tr>
-  <tr *ngFor="let empresa of empresas | async ">
-    <td>
-      {{empresa.denominacion}}
-    </td>
-    <td>
-      <a routerLink="/home/{{empresa.id}}">Ver Noticias</a>
-    </td>
-  </tr>
-</table>
+<div class="container">
+
+  <table class="table table-striped table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Denominación</th>
+        <th scope="col">Sitio Web</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of empresas | async ">
+        <td>
+          {{empresa.id}}
+        </td>
+        <td>
+          {{empresa.denominacion}}
+        </td>
+        <td>
+          <a routerLink="/home/{{empresa.id}}">Sitio Web</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</div>
